@@ -7,7 +7,7 @@
      :suffix ""}))
 
 (defn update-state! [k v]
-  (swap! state update-in [k] (fn [_] v)))
+  (swap! state assoc k v))
 
 (defn mk-nice-string [{:keys [prefix suffix]}]
   (clojure.string/join
