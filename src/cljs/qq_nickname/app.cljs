@@ -18,20 +18,21 @@
 
 (defn form-component []
   [:form.form
+   [:h1 "QQ昵称生成器"]
    [:fieldset.form-group
-    [:label {:for "prefix"} "Prefix:"]
+    [:label {:for "prefix"} "昵称/前缀："]
     [:input.form-control
      {:id "prefix"
       :type "text"
       :on-change #(update-state! :prefix (-> % .-target .-value))}]]
    [:fieldset.form-group
-    [:label {:for "Suffix"} "Suffix:"]
+    [:label {:for "suffix"} "后缀："]
     [:input.form-control
      {:id "suffix"
       :type "text"
       :on-change #(update-state! :suffix (-> % .-target .-value))}]]
    [:fieldset.form-group
-    [:label {:for "result"} "Result:"]
+    [:label {:for "result"} "请复制此行："]
     [:input.form-control
      {:id "result"
       :type "text"
@@ -44,5 +45,6 @@
     [form-component]]])
 
 (defn init []
-  (r/render-component [container-component]
-                            (.getElementById js/document "app")))
+  (r/render-component
+    [container-component]
+    (.getElementById js/document "app")))
