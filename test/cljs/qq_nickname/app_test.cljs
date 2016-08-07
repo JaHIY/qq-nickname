@@ -12,13 +12,3 @@
          (app/mk-nice-string {:prefix "q" :suffix "z"})))
      [113 8238 122 8237])
     "We need a nice string."))
-
-(deftest test-update-state! []
-  (let [test-str "qwer"]
-    (is
-      (=
-       (do
-         (app/update-state! :prefix test-str)
-         (:prefix @app/state))
-       test-str)
-      "update-state! is important.")))
